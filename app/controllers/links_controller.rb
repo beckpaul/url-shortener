@@ -3,7 +3,7 @@ class LinksController < ApplicationController
     @links = Link.recent_first
   end
 
-  def def create
+  def create
     @link = Link.new(link_params)
     if @link.save
       redirect_to root_path
