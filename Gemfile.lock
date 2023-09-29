@@ -68,6 +68,10 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    better_errors (2.10.1)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
+      rouge (>= 1.0.0)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -81,6 +85,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    chartkick (5.0.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -90,6 +95,8 @@ GEM
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    groupdate (6.2.1)
+      activesupport (>= 5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -172,6 +179,7 @@ GEM
     reline (0.3.8)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rouge (4.1.2)
     rubyzip (2.3.2)
     selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -219,9 +227,12 @@ PLATFORMS
   x86_64-darwin-22
 
 DEPENDENCIES
+  better_errors
   bootsnap
   capybara
+  chartkick
   debug
+  groupdate (~> 6.2)
   importmap-rails
   jbuilder
   puma (~> 5.0)

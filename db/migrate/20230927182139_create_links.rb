@@ -3,9 +3,9 @@ class CreateLinks < ActiveRecord::Migration[7.0]
     create_table :links do |t|
       t.string :url
       t.string :title
-      t.string :desceription
+      t.string :description
       t.string :image
-      t.integer :view_counts
+      t.integer :views_count, default: 0
 
       t.timestamps
     end
