@@ -16,12 +16,16 @@ class ShortCode
     result
   end
 
-  def self.decode(number)
-    result = ""
+  def self.decode(string)
+    number = 0
 
-    while number > 0
-
+    string.reverse.each_char.with_index do |char, index|
+      power = BASE**index
+      index = ALPHABET.index(char)
+      number += index * power
     end
+
+    number
   end
 
 end
