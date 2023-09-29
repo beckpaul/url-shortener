@@ -4,7 +4,7 @@
 <div>
   <%= form_with model: Link.new do |f| %>
     <div class="flex gap-2 items-center">
-      <%= f.url_field :url, placeholder: "https://example.com" , class: "flex-grow rounded" %>
+      <%= f.url_field :url, autofocus: true, placeholder: "https://example.com", class: "flex-grow rounded" %>
       <%= f.button "Save" , class: "px-3 py-2 bg-gray-100 rounded" %>
     </div>
     <% end %>

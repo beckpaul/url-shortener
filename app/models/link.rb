@@ -2,4 +2,14 @@ class Link < ApplicationRecord
   validates :url, presence: true
 
   scope :recent_first, -> {order(created_at: :desc) }
+
+
+  def to_param
+    ShortCode.encode(id)
+  end
+
+  def find
+    super ShortCode.decode(id)
+  end
+
 end
