@@ -1,3 +1,3 @@
 class View < ApplicationRecord
-  belongs_to :links, counter_cache: true
+  belongs_to :link, counter_cache: true
 end
