@@ -1,10 +1,11 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show]
+  before_action :set_link, only: [:show, :edit, :update, :destroy]
 
   def show; end
 
   def index
     @links = Link.recent_first
+    @link ||= Link.new
   end
 
   def create
@@ -15,6 +16,23 @@ class LinksController < ApplicationController
       index
       render :index, status: :unprocessable_entity
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @link.update(link_params)
+      redirect_to @link
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @link.destroy
+    redirect_to root_path, notice: "Link has been deleted"
   end
 
   private

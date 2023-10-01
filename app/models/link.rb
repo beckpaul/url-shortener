@@ -13,4 +13,8 @@ class Link < ApplicationRecord
     super ShortCode.decode(id)
   end
 
+  def domain
+    URI(url).host rescue StandardError::InvalidURIError
+  end
+
 end
