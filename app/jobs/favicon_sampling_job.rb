@@ -12,11 +12,12 @@ class FaviconSamplingJob < ActiveJob::Base
 
     counts = pixels.group_by { |pixel| pixel }.transform_values(&:count)
     rgb_values = counts.sort_by {|_, count| -count}.take(3).map(&:first)
+    binding.pry
 
     convert_rgb_to_hex rgb_values
   end
 
-  def convert_rgb_to_hex rbg_values
+  def convert_rgb_to_hex rgb_values
     rgb_values.map do |rgb|
       "##{rgb.map { |val| val.to_s(16).rjust(2, '0') }.join('')}"
     end
@@ -33,7 +34,10 @@ class FaviconSamplingJob < ActiveJob::Base
   def parse_favicon destination_path
     image = Magick::Image.read(destination_path).first
     pixels = image.export_pixels(0,0, image.columns, image.rows, 'RGB')
-    pixels.each_slice(3).to_a
+    rgb_values = pixels.each_slice(3).map do |rgb|
+      rgb.map { |val| (val / 256.0).round }
+    end
+    return rgb_values
   end
 
   def delete_file destination_path
