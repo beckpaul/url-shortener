@@ -34,6 +34,8 @@ gem "chartkick"
 
 gem "groupdate", "~> 6.2"
 
+gem "rmagick"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
