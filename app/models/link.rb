@@ -6,6 +6,7 @@ class Link < ApplicationRecord
 
   after_save_commit if: :url_previously_changed? do
     MetadataJob.perform_later(to_param)
+    FaviconSamplingJob.perform_later(to_param)
   end
 
 
