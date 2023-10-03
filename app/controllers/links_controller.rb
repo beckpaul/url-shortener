@@ -24,9 +24,11 @@ class LinksController < ApplicationController
     end
   end
 
-  def edit
-
+  def show
+    turbo_stream_from "links/#{@link.id}"
   end
+
+  def edit; end
 
   def update
     if @link.update(link_params)
