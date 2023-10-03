@@ -12,9 +12,10 @@ class FaviconSamplingJob < ActiveJob::Base
 
     counts = pixels.group_by { |pixel| pixel }.transform_values(&:count)
     rgb_values = counts.sort_by {|_, count| -count}.take(3).map(&:first)
-    binding.pry
 
-    convert_rgb_to_hex rgb_values
+    hex_values = convert_rgb_to_hex rgb_values
+
+    link.update(:favicon_hex => hex_values)
   end
 
   def convert_rgb_to_hex rgb_values
