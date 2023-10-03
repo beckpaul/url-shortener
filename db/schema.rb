@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_29_040003) do
     t.string "title"
     t.string "description"
     t.string "image"
+    t.json "favicon_hex", default: ["#000000", "#000000", "#000000"]
     t.integer "views_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
